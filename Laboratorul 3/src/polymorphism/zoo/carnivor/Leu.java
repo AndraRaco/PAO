@@ -11,5 +11,12 @@ public class Leu extends Carnivor
     public void scoateSunet() {
         System.out.println("leul " + this.sunet_specific);
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Leu{" +
+                "sunet_specific='" + sunet_specific + '\'' +
+                '}';
+    }
 }
 

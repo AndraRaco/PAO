@@ -11,8 +11,15 @@ public class Zoo
     Animal[] animaleZoo;
 
     public Zoo(int nrMaxAnimale) {
-        this.nrMaxAnimale = nrMaxAnimale;
-        this.animaleZoo = new Animal[nrMaxAnimale];
+        if (nrMaxAnimale > 0)
+        {
+            this.nrMaxAnimale = nrMaxAnimale;
+            this.animaleZoo = new Animal[nrMaxAnimale];
+        }
+        else
+        {
+            throw  new RuntimeException("Nu ati introdus un nr intreg pozitiv");
+        }
     }
 
     public void adaugAnimal(Animal animal)
@@ -20,8 +27,7 @@ public class Zoo
         if(indexCurent < animaleZoo.length)
         {
             animaleZoo[indexCurent] = animal;
-            indexCurent++;
-            System.out.println("Adaugat animal " + animal.getClass());
+            System.out.println("Adaugat animal " + animal.getClass() + indexCurent++);
         }
     }
 

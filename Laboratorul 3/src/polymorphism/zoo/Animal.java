@@ -1,6 +1,7 @@
 package polymorphism.zoo;
 
-public abstract class Animal{
+public abstract class Animal // Nu putem avea final si abstract in acelasi timp
+{
     private int nrIdentificare;
     private String nume;
     private int varsta;
@@ -21,5 +22,21 @@ public abstract class Animal{
     public void afisareDetalii()
     {
         System.out.println("Acesta este " + this.toString());
+    }
+
+    @Override
+    public String toString() {
+        return "Animal din categoria " + this.getClass().getSuperclass().getSimpleName() +
+                " din specia " + this.getClass().getSimpleName() + " {" +
+                "nrIdentificare=" + nrIdentificare +
+                ", nume='" + nume + '\'' +
+                ", varsta=" + varsta +
+                ", nrIdentificare=" + nrIdentificare +
+                '}';
+    }
+
+    public String getNume()
+    {
+        return this.nume;
     }
 }

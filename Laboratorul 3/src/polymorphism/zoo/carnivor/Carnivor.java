@@ -15,4 +15,10 @@ public abstract class Carnivor extends Animal
         System.out.println(this + " se hraneste cu " + this.tip_hrana);
     }
 
+    @Override
+    public String toString() {
+        return super.toString() +  "Carnivor{" +
+                "sunet_specific='" + sunet_specific + '\'' +
+                '}';
+    }
 }
