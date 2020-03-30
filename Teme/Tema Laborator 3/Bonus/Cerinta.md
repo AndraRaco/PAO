@@ -1,5 +1,6 @@
 # Exercitiu bonus:
-## a. Implementaţi o clasă MyArrayList, care va reprezenta un vector de numere reale, cu posibilitatea redimensionării automate. Ea va fi definită în pachetul arrays. Clasa va conţine următoarele metode:
+## a. 
+Implementaţi o clasă MyArrayList, care va reprezenta un vector de numere reale, cu posibilitatea redimensionării automate. Ea va fi definită în pachetul arrays. Clasa va conţine următoarele metode:
 - un constructor fără parametri, care creează intern un vector cu 10 elemente;
 - un constructor cu un parametru de tipul întreg, care creează un vector de dimensiune egală cu parametrul primit;
 - o metodă numită add(float value), care adaugă valoarea value la primul index disponibil al vectorului. Dacă se depăşeşte capacitatea vectorului, acesta se va redimensiona la o capacitate dublă;
@@ -10,9 +11,11 @@ Atenţie! Există o diferenţă între capacitatea vectorului (dimensiunea cu ca
 - o metodă numită size() care returnează numarul de elemente memorate in vector;
 - o metodă declarată public String toString() care va returna o reprezentare a tuturor valorilor vectorului ca un şir de caractere.
 
-## b. Scrieţi o clasă de test separată pentru clasa MyArrayList, populând lista cu 3 elemente şi verificând că valorile întoarse de metoda get corespund, într-adevăr, poziţiilor aferente din vectorul intern clasei.
+## b. 
+Scrieţi o clasă de test separată pentru clasa MyArrayList, populând lista cu 3 elemente şi verificând că valorile întoarse de metoda get corespund, într-adevăr, poziţiilor aferente din vectorul intern clasei.
 
-## c. Scrieţi un scenariu de utilizare a clasei MyArrayList, astfel:
+## c. 
+Scrieţi un scenariu de utilizare a clasei MyArrayList, astfel:
 - iniţializând-o cu o capacitate de 5 de elemente iar apoi inserând 10 elemente aleatoare utilizând doar metoda add;
 - cautând 5 valori aleatoare în vector;
 - eliminând 5 valori aleatoare din vector.
