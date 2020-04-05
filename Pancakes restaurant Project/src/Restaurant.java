@@ -202,17 +202,6 @@ public class Restaurant {
         throw new Exception("The restaurant has no waiter hired.");
     }
 
-    public Client newClient() {//Returns the client
-        System.out.println("New client information: ");
-        System.out.println("name=");
-        String name = scanner.nextLine();
-        System.out.println("age=");
-        int age = Integer.parseInt(scanner.nextLine());
-        Client client = new Client(name, age);
-        clients.add(client);
-        return client;
-    }
-
     public void takeOrder(Client client) {
         try {
             Employee employee = this.waiter();
@@ -231,6 +220,18 @@ public class Restaurant {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public Client newClient() {//Returns the client
+        System.out.println("New client information: ");
+        System.out.println("name=");
+        String name = scanner.nextLine();
+        System.out.println("age=");
+        int age = Integer.parseInt(scanner.nextLine());
+        Client client = new Client(name, age);
+        takeOrder(client);
+        clients.add(client);
+        return client;
     }
 
     public void closeScanner() {
