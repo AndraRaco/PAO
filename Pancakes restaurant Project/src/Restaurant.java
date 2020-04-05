@@ -165,4 +165,64 @@ public class Restaurant {
             System.out.println(product);
         }
     }
+<<<<<<< HEAD
+=======
+
+    public void actualizeMoneyEarned(double receiptTotalOrder) {
+        moneyEarned += receiptTotalOrder;
+    }
+
+    public Employee waiter() throws Exception {
+        String str = "waiter";
+
+        Iterator iterator = employees.iterator();
+        while (iterator.hasNext()) {
+            Employee employee = (Employee) iterator.next();
+            if (employee.getJobName().equals(str)) {
+                return employee;
+            }
+        }
+        throw new Exception("The restaurant has no waiter hired.");
+    }
+
+    public Client newClient() {//Returns the client
+        System.out.println("New client information: ");
+        System.out.println("name=");
+        String name = scanner.nextLine();
+        System.out.println("age=");
+        int age = Integer.parseInt(scanner.nextLine());
+        Client client = new Client(name, age);
+        clients.add(client);
+        return client;
+    }
+
+    public void takeOrder(Client client) {
+        try {
+            Employee employee = this.waiter();
+            System.out.println(employee.toString() + " takes the order from " + client.toString());
+            System.out.println("Number of products (beverage + pancakes) you want to order:");
+            int numberOfProducts = Integer.parseInt(scanner.nextLine());
+            Receipt receipt = client.getReceipt();
+            for (int i = 0; i < numberOfProducts; i++) {
+                System.out.println("Index of the dish in the menu between 1 and " + menu.sizeOfMenu() + ":");
+                int index = Integer.parseInt(scanner.nextLine()) - 1;
+                receipt.addDish(index);
+                double priceDish = menu.priceOfAProduct(index);
+                receipt.addPriceOfAProductToTotalOrder(priceDish);
+            }
+            this.actualizeMoneyEarned(receipt.getTotalOrder());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void closeScanner() {
+        scanner.close();
+    }
+
+    public void sortClientsAfterDate() {
+        clients.sort(Client::compareTo);
+    }
+
+>>>>>>> parent of 87edeae... takeOrder usage moved in newClient
 }
