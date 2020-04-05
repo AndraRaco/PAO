@@ -1,10 +1,17 @@
 # Advanced Object Oriented Programming in Java
 
-# Teme: 
-1. Tema Laborator 3
+## Pancakes restaurant Project First Part
+Github: https://github.com/AndraRaco/PAO/tree/master/Pancakes%20restaurant%20Project
+
+Requirement: https://github.com/constantin-voinea/java-fundamentals/blob/master/tema_proiect.txt
+
+## Homeworks: 
+1. 3rd Laboratory Homework
   * Bonus: https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%203/Bonus
-  * Exercitiu 1: https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%203/Exercitiu%201
-2. Tema Laborator 4
-  * Exercitiu 2: https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%204/Exercitiul%202
-3. Tema Laborator 5
-  * Exercitiu 1 si 2: https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%205
+  * 1st Exercise: https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%203/Exercitiu%201
+  
+2. 4th Laboratory Homework
+  * 2nd Exercise: https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%204/Exercitiul%202
+  
+3. 5th Laboratory Homework
+  * 1st and 2nd Exercise: https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%205
