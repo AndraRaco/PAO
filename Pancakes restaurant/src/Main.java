@@ -35,8 +35,11 @@ public class Main {
         System.out.println();
 
         // New Client in the restaurant
-        restaurant.newClient();
-        restaurant.newClient();
+        Client newClient1 = restaurant.newClient();
+        restaurant.takeOrder(newClient1);
+
+        Client newClient2 = restaurant.newClient();
+        restaurant.takeOrder(newClient2);
         restaurant.closeScanner();
 
         System.out.println("\nTotal money earned: " + restaurant.getMoneyEarned());// Total money earned
