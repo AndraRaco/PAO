@@ -44,5 +44,5 @@ It provides different methods and classes in order to update the restaurant's em
 7. closeScanner
 8. sortClientsAfterDate, date is in class Receipt
 
-
+Requirement: https://github.com/constantin-voinea/java-fundamentals/blob/master/tema_proiect.txt
 
