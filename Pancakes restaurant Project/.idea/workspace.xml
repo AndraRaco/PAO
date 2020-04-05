@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="59613e7c-76bb-4435-b58a-f5de059e62b4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pancakes restaurant.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadMe.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients with receipt.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/employees.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Pancakes restaurant/META-INF/Pancakes restaurant.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Pancakes restaurant/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Pancakes restaurant/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Pancakes restaurant/Restaurant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Pancakes restaurant/person/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Pancakes restaurant/person/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Pancakes restaurant/person/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Pancakes restaurant/person/Receipt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Pancakes restaurant/product/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Pancakes restaurant/product/beverage/AlcoholicBeverage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Pancakes restaurant/product/beverage/Beverage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Pancakes restaurant/product/beverage/NonalcoholicBeverages.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Pancakes restaurant/product/pancakes/Ingredient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Pancakes restaurant/product/pancakes/Pancake.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/Receipt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/product/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/product/beverage/AlcoholicBeverage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/product/beverage/Beverage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/product/beverage/NonalcoholicBeverages.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/product/pancakes/Ingredient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/product/pancakes/Pancake.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1a8MlbXYZDLEfjnqWhuTPxOOjH5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Pancakes restaurant" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="59613e7c-76bb-4435-b58a-f5de059e62b4" name="Default Changelist" comment="" />
+      <created>1586112919816</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586112919816</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="499" y="109" key="FileChooserDialogImpl" timestamp="1586112967655">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="109" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586112967655" />
+    <state x="2" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1586112924249">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="2" y="193" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586112924249" />
+  </component>
+</project>
