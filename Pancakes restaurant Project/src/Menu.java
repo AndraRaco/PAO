@@ -17,9 +17,9 @@ public class Menu {
     }
 
     public Menu(int numberProducts) {
-        if (numberProducts > 0)
+        if (numberProducts > 0) {
             this.numberProducts = numberProducts;
-        else {
+        } else {
             throw new RuntimeException("The number is not positive");
         }
         this.menu = new ArrayList<Product>();
@@ -42,14 +42,13 @@ public class Menu {
     }
 
     public Product getProductFromMenu(int index) {
-        if (index >= 0 && index < numberProducts)
+        if (index >= 0 && index < numberProducts) {
             return menu.get(index);
-        else throw new ArrayIndexOutOfBoundsException("Index is not between 0 and " + (numberProducts - 1));
-
+        } else throw new ArrayIndexOutOfBoundsException("Index is not between 0 and " + (numberProducts - 1));
     }
 
     public void read() {
-        File file = new File("D:\\FMI\\ANUL 2\\Semestrul 2\\PAO\\Pancakes restaurant\\menu.txt");
+        File file = new File("menu.txt");
         BufferedReader br;
         try {
             br = new BufferedReader(new FileReader(file));
@@ -88,6 +87,7 @@ public class Menu {
                         menu.add(product);
                     }
                 }
+            br.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -103,5 +103,13 @@ public class Menu {
                 System.out.println((i + 1) + ". " + ((Pancake) product).toStringShowIngredients());
             else System.out.println((i + 1) + ". " + product.toString());
         }
+    }
+
+    public double priceOfAProduct(int indexProduct) {
+        return menu.get(indexProduct).getPrice();
+    }
+
+    public int sizeOfMenu() {
+        return menu.size();
     }
 }
