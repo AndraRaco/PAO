@@ -15,6 +15,7 @@ public class Main {
         System.out.println();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         // New Client in the restaurant
         Client newClient1 = restaurant.newClient();
@@ -26,6 +27,8 @@ public class Main {
 
         System.out.println("\nTotal money earned: " + restaurant.getMoneyEarned());// Total money earned
 >>>>>>> parent of 87edeae... takeOrder usage moved in newClient
+=======
+>>>>>>> parent of 152dd93... First Part of the Project
 
 
     }

@@ -166,6 +166,7 @@ public class Restaurant {
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
     public void actualizeMoneyEarned(double receiptTotalOrder) {
@@ -225,4 +226,6 @@ public class Restaurant {
     }
 
 >>>>>>> parent of 87edeae... takeOrder usage moved in newClient
+=======
+>>>>>>> parent of 152dd93... First Part of the Project
 }
