@@ -75,9 +75,9 @@ public class Pancake extends Product {
                 ", price=" + super.getPrice()
                 + ", grams="
                 + weightGrams + "\n");
-        str.append("Ingredients: ");
-        for (int i = 0; i < numberIngredients; i++)
-            str.append(ingredientList.get(i)).append("; ");
+            str.append("Ingredients: ");
+            for (int i = 0; i < numberIngredients; i++)
+                str.append(ingredientList.get(i)).append("; ");
         return str.toString();
     }
 

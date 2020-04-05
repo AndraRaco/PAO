@@ -11,7 +11,6 @@ public class Receipt {
     private Date date;
     private int numberOfDishes;
     private ArrayList<Integer> numberDish; // Number from the menu
-    private double totalOrder;
 
     public Receipt() {
         super();
@@ -19,7 +18,6 @@ public class Receipt {
         date = new Date();
         numberOfDishes = 0;
         numberDish = new ArrayList<Integer>();
-        totalOrder = 0;
     }
 
     public Receipt(Date date, int numberOfProducts) {
@@ -27,23 +25,6 @@ public class Receipt {
         this.date = date;
         this.numberOfDishes = numberOfProducts;
         this.numberDish = new ArrayList<Integer>();
-        totalOrder = 0;
-    }
-
-    public ArrayList<Integer> getNumberDish() {
-        return numberDish;
-    }
-
-    public void setNumberDish(ArrayList<Integer> numberDish) {
-        this.numberDish = numberDish;
-    }
-
-    public double getTotalOrder() {
-        return totalOrder;
-    }
-
-    public void setTotalOrder(double totalOrder) {
-        this.totalOrder = totalOrder;
     }
 
     public int getId() {
@@ -77,17 +58,11 @@ public class Receipt {
 
     public void addDish(int dishNumber) {
         numberDish.add(dishNumber);
-        if (numberDish.size() > numberOfDishes)
-            numberOfDishes++;
     }
 
     public int dishNumber(int index) {
         if (index >= 0 && index < numberOfDishes)
             return numberDish.get(index).intValue();
-        else throw new ArrayIndexOutOfBoundsException("Index is not between 0 and" + (numberOfDishes - 1));
-    }
-
-    public void addPriceOfAProductToTotalOrder(double priceProduct) {
-        totalOrder += priceProduct;
+        else throw new ArrayIndexOutOfBoundsException("Index is not between 0 and"+(numberOfDishes-1));
     }
 }
