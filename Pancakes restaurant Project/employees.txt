@@ -1,0 +1,5 @@
+Alexandru 23 manager
+Gabriel 27 cook
+Maria 21 waiter
+David 25 waiter
+Carmen 32 cleaner
