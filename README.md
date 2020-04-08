@@ -17,5 +17,5 @@ Requirement: https://github.com/constantin-voinea/java-fundamentals/blob/master/
   * [1st and 2nd Exercises](https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%205)
 
 4. 6th Laboratory Homework
-  * [1st Exercise](https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%206/out/production/Tema%20Laborator%206/exercitiul14)
-  * [2nd Exercise](https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%206/out/production/Tema%20Laborator%206/exercitiul2)
+  * [1st Exercise](https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%206/src/exercitiul1)
+  * [2nd Exercise](https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%206/src/exercitiul2)
