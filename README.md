@@ -7,11 +7,15 @@ Requirement: https://github.com/constantin-voinea/java-fundamentals/blob/master/
 
 ## Homeworks: 
 1. 3rd Laboratory Homework
-  * Bonus: https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%203/Bonus
-  * 1st Exercise: https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%203/Exercitiu%201
+  * [Bonus](https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%203/Bonus)
+  * [1st Exercise](https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%203/Exercitiu%201)
   
 2. 4th Laboratory Homework
-  * 2nd Exercise: https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%204/Exercitiul%202
+  * [2nd Exercise](https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%204/Exercitiul%202)
   
 3. 5th Laboratory Homework
-  * 1st and 2nd Exercise: https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%205
+  * [1st and 2nd Exercises](https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%205)
+
+4. 6th Laboratory Homework
+  * [1st Exercise](https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%206/out/production/Tema%20Laborator%206/exercitiul14)
+  * [2nd Exercise](https://github.com/AndraRaco/PAO/tree/master/Teme/Tema%20Laborator%206/out/production/Tema%20Laborator%206/exercitiul2)
