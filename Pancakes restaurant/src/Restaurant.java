@@ -100,7 +100,7 @@ public class Restaurant {
         if (employees.size() > 0) {
 
             System.out.println("Employees");
-            Iterator iterator = employees.iterator();
+            Iterator<Employee> iterator = employees.iterator();
             while (iterator.hasNext()) {
                 System.out.println(iterator.next());
             }
@@ -192,7 +192,7 @@ public class Restaurant {
     public Employee waiter() throws Exception {
         String str = "waiter";
 
-        Iterator iterator = employees.iterator();
+        Iterator<Employee> iterator = employees.iterator();
         while (iterator.hasNext()) {
             Employee employee = (Employee) iterator.next();
             if (employee.getJobName().equals(str)) {
