@@ -1,47 +1,29 @@
-import person.Client;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Scanner;
+import readWriteCSV.CSVReader;
+import restaurant.Restaurant;
 
 public class Main {
     public static void main(String[] args) {
+        // Read all that has to be read
         Restaurant restaurant = new Restaurant("Andra's Pancakes Restaurant");
         System.out.println(restaurant.getName());
 
-        restaurant.readMenu();
-        try {
-            restaurant.showMenu();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println();
-
-        restaurant.readEmployeeList();
+        CSVReader csvReader = CSVReader.getInstance();
+        csvReader.readSetOfEmployees(restaurant);
         try {
             restaurant.showEmployeeList();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println();
 
-        restaurant.readClientList();
+        csvReader.readMenu(restaurant.getMenu());
         try {
-            restaurant.showClientList();
+            restaurant.showMenu();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println();
 
-        // New Client in the restaurant
-        restaurant.newClient();
-        restaurant.newClient();
-        restaurant.closeScanner();
-
-        System.out.println("\nTotal money earned: " + restaurant.getMoneyEarned());// Total money earned
-
-        restaurant.sortClientsAfterDate();
+        csvReader.readOldClientsList(restaurant); // Clients that have already ordered
+        csvReader.readClientsList(restaurant); // Clients that didn't ordered yet
         try {
             restaurant.showClientList();
         } catch (Exception e) {

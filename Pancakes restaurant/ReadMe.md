@@ -1,6 +1,6 @@
 # Pancakes restaurant Project
 
-It is a programme written in Java designed to help with a Pancake Restaurant administration.
+It is a programme written in Java designed to help with a Pancake restaurant.Restaurant administration.
 
 ## Describing the code
 
@@ -21,11 +21,11 @@ It provides different methods and classes in order to update the restaurant's em
   b. pancakes (package)
     * Ingredient
     * Pancake
-* Menu
-* Restaurant 
+* restaurant.Menu
+* restaurant.Restaurant 
 * Main
    
-### Methods from Restaurant Class
+### Methods from restaurant.Restaurant Class
 1. Read methods:
   * readEmployeeList
   * readClientList
