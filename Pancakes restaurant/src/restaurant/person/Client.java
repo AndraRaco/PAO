@@ -10,13 +10,13 @@ public class Client extends Person implements Comparable<Client> {
     public Client(String name, int age) {
         super(name, age);
         this.id = hashCode();
-        receipt = new Receipt();
+        receipt = null;
     }
 
     public Client() {
         super();
         this.id = hashCode();
-        receipt = new Receipt();
+        receipt = null;
     }
 
     public Receipt getReceipt() {
@@ -42,22 +42,35 @@ public class Client extends Person implements Comparable<Client> {
     public String toString() {
         String str = "Client " +
                 "id=" + id + ", name=" + super.getName() + ", age=" + super.getAge();
-        str += receipt.toString();
+        if (receipt != null)
+            str += receipt.toString();
         return str;
     }
 
-    public double receiptTotalOrder() {
-        return receipt.getTotalOrder();
+    public double receiptTotalOrder() throws Exception {
+        if (receipt != null)
+            return receipt.getTotalOrder();
+        else throw new Exception("There is no receipt, the order hasn't been taken.");
     }
 
-    public void addProductToTheReceipt(int DishNumber) {
-        receipt.addDish((Integer) DishNumber);
+    public void addProductToTheReceipt(int DishNumber) throws Exception {
+        if (receipt != null)
+            receipt.addDish((Integer) DishNumber);
+        else throw new Exception("There is no receipt, the order hasn't been taken.");
     }
 
     @Override
     public int compareTo(Client client) {
-        Date date1 = this.getReceipt().getDate();
-        Date date2 = client.getReceipt().getDate();
+        Date date1= new Date(),date2=new Date();
+        if(client.getReceipt()!=null && this.getReceipt()!=null)
+        {
+        date1 = this.getReceipt().getDate();
+        date2 = client.getReceipt().getDate();
+        }
         return date1.compareTo(date2);
+    }
+
+    public void makeReceipt(){
+        receipt=new Receipt();
     }
 }

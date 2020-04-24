@@ -104,7 +104,8 @@ public class Restaurant {
             for (int i = 0; i < clients.size(); i++) {
                 System.out.println(i + 1);
                 System.out.println(clients.get(i));
-                printProductsFromReceipt(i);
+                if (clients.get(i).getReceipt() != null)
+                    printProductsFromReceipt(i);
             }
         } else {
             throw new Exception("Client List wasn't read.");
@@ -122,12 +123,14 @@ public class Restaurant {
 
     public void printProductsFromReceipt(int indexClient) {
         Client client = clients.get(indexClient);
-        Receipt receipt = client.getReceipt();
-        for (int i = 0; i < receipt.getNumberOfDishes(); i++) {
-            int index = receipt.dishNumber(i);
-            Product product = menu.getProductFromMenu(index);
-            System.out.println(product);
-        }
+        if (client.getReceipt() != null) {
+            Receipt receipt = client.getReceipt();
+            for (int i = 0; i < receipt.getNumberOfDishes(); i++) {
+                int index = receipt.dishNumber(i);
+                Product product = menu.getProductFromMenu(index);
+                System.out.println(product);
+            }
+        } else System.out.println("The client didn't order yet.");
     }
 
     public void actualizeMoneyEarned(double receiptTotalOrder) {
@@ -139,7 +142,7 @@ public class Restaurant {
 
         Iterator<Employee> iterator = employees.iterator();
         while (iterator.hasNext()) {
-            Employee employee = (Employee) iterator.next();
+            Employee employee = iterator.next();
             if (employee.getJobName().equals(str)) {
                 return employee;
             }
@@ -153,6 +156,7 @@ public class Restaurant {
             System.out.println(employee.toString() + " takes the order from " + client.toString());
             System.out.println("Number of products (beverage + pancakes) you want to order:");
             int numberOfProducts = Integer.parseInt(scanner.nextLine());
+            client.makeReceipt();
             Receipt receipt = client.getReceipt();
             for (int i = 0; i < numberOfProducts; i++) {
                 System.out.println("Index of the dish in the menu between 1 and " + menu.sizeOfMenu() + ":");
@@ -167,16 +171,14 @@ public class Restaurant {
         }
     }
 
-    public Client newClient() {//Returns the client
+    public void newClient() {//Returns the client
         System.out.println("New client information: ");
         System.out.println("name=");
         String name = scanner.nextLine();
         System.out.println("age=");
         int age = Integer.parseInt(scanner.nextLine());
         Client client = new Client(name, age);
-        takeOrder(client);
         clients.add(client);
-        return client;
     }
 
     public void closeScanner() {
@@ -189,5 +191,23 @@ public class Restaurant {
 
     public void addClient(Client client) {
         clients.add(client);
+    }
+
+    public ArrayList<Integer> clientsDidNotOrdered() {//Returns a list of indexes of the clients that have not ordered
+        ArrayList<Integer> indexesOfClientsDidNotOrdered = new ArrayList<Integer>();
+        Iterator<Client> iterator = clients.iterator();
+        int i = 0;
+        while (iterator.hasNext()) {
+            Client client = iterator.next();
+            if (client.getReceipt() == null) {
+                indexesOfClientsDidNotOrdered.add(i);
+            }
+            i++;
+        }
+        return indexesOfClientsDidNotOrdered;
+    }
+
+    public int sizeOfClientsList() {
+        return clients.size();
     }
 }
