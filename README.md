@@ -1,6 +1,6 @@
 # Advanced Object Oriented Programming in Java
 
-## Pancakes restaurant Project First Part
+## Pancakes restaurant Project Second Part
 Github: https://github.com/AndraRaco/PAO/tree/master/Pancakes%20restaurant
 
 Requirement: https://github.com/constantin-voinea/java-fundamentals/blob/master/tema_proiect.txt
