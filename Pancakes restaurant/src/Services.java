@@ -1,18 +1,23 @@
 import readWriteCSV.CSVReader;
+import readWriteCSV.CSVWriter;
 import restaurant.Restaurant;
 import restaurant.person.Client;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Services {
     private Restaurant restaurant;
     CSVReader csvReader;
+    CSVWriter csvWriter;
 
     public Services(String restaurant) {
         this.restaurant = new Restaurant();
         this.restaurant.setName(restaurant);
         csvReader = CSVReader.getInstance();
+        csvWriter = CSVWriter.getInstance();
     }
 
     public Restaurant getRestaurant() {
@@ -21,6 +26,10 @@ public class Services {
 
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
+    }
+
+    public void writeActionInCSV(String string, Date timestamp) {
+        csvWriter.writeInCSV(string, timestamp);
     }
 
     public void readAllDataFromCSV() {
@@ -111,6 +120,10 @@ public class Services {
             else System.out.println("The number should be between 1 and 11. Another number: ");
         }
         return choice;
+    }
+
+    public void closeCSVWriter(){
+        csvWriter.close();
     }
 
     public void printListOfActions() {
