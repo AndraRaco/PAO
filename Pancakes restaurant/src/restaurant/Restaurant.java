@@ -159,11 +159,17 @@ public class Restaurant {
             client.makeReceipt();
             Receipt receipt = client.getReceipt();
             for (int i = 0; i < numberOfProducts; i++) {
-                System.out.println("Index of the dish in the menu between 1 and " + menu.sizeOfMenu() + ":");
-                int index = Integer.parseInt(scanner.nextLine()) - 1;
-                receipt.addDish(index);
-                double priceDish = menu.priceOfAProduct(index);
-                receipt.addPriceOfAProductToTotalOrder(priceDish);
+                boolean goodIndex = false;
+                while (!goodIndex) {
+                    System.out.println("Index of the dish in the menu between 1 and " + menu.sizeOfMenu() + ":");
+                    int index = Integer.parseInt(scanner.nextLine()) - 1;
+                    if (index >= 0 && index < menu.sizeOfMenu()) {
+                        receipt.addDish(index);
+                        double priceDish = menu.priceOfAProduct(index);
+                        receipt.addPriceOfAProductToTotalOrder(priceDish);
+                        goodIndex = true;
+                    } else System.out.println("Index is not good.");
+                }
             }
             this.actualizeMoneyEarned(receipt.getTotalOrder());
         } catch (Exception e) {
