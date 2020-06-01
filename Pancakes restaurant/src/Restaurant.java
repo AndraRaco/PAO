@@ -89,7 +89,7 @@ public class Restaurant {
                 String name = strings[0];
                 int age = Integer.parseInt(strings[1]);
                 String job = strings[2];
-                Employee newEmployee = new Employee(0, name, age, job);
+                Employee newEmployee = new Employee(name, age, job);
                 employees.add(newEmployee);
             }
             br.close();

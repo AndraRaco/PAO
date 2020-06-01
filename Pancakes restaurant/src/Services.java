@@ -6,6 +6,7 @@ import readWriteCSV.CSVReader;
 import readWriteCSV.CSVWriter;
 import restaurant.Restaurant;
 import restaurant.person.Client;
+import restaurant.person.Employee;
 import restaurant.product.beverage.AlcoholicBeverage;
 import restaurant.product.beverage.NonalcoholicBeverages;
 import restaurant.product.pancakes.Pancake;
@@ -14,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Services {
@@ -51,6 +53,11 @@ public class Services {
     public void readAllDataFromCSV() throws SQLException {
         // Read the List of Employees
         emCRUD.read(restaurant);
+//        Employee newEmployee = new Employee("name", 0, "job");
+//        emCRUD.create(restaurant, newEmployee);
+//        emCRUD.updateAge(restaurant, newEmployee, 23);
+//        emCRUD.delete(restaurant, newEmployee);
+
 
         // Read the Menu
         menuCRUD.read(restaurant.getMenu());
