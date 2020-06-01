@@ -1,11 +1,13 @@
-import product.Product;
-import product.beverage.AlcoholicBeverage;
-import product.beverage.NonalcoholicBeverages;
-import product.pancakes.Ingredient;
-import product.pancakes.Pancake;
+
+import restaurant.product.Product;
+import restaurant.product.beverage.AlcoholicBeverage;
+import restaurant.product.beverage.NonalcoholicBeverages;
+import restaurant.product.pancakes.Ingredient;
+import restaurant.product.pancakes.Pancake;
 
 import java.io.*;
 import java.util.ArrayList;
+
 
 public class Menu {
     private int numberProducts;

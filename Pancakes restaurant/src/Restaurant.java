@@ -1,7 +1,7 @@
-import person.Client;
-import person.Employee;
-import person.Receipt;
-import product.Product;
+import restaurant.person.Client;
+import restaurant.person.Employee;
+import restaurant.person.Receipt;
+import restaurant.product.Product;
 
 import java.io.*;
 import java.text.ParseException;
@@ -76,9 +76,13 @@ public class Restaurant {
 
     public void readEmployeeList() {
         File file = new File("employees.txt");
-        BufferedReader br;
+        BufferedReader br = null;
         try {
-            br = new BufferedReader(new FileReader(file));
+            try {
+                br = new BufferedReader(new FileReader(file));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
             String string;
             while ((string = br.readLine()) != null) {
                 String[] strings = string.split(" ");
@@ -89,8 +93,6 @@ public class Restaurant {
                 employees.add(newEmployee);
             }
             br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -136,7 +138,11 @@ public class Restaurant {
                     receipt.addPriceOfAProductToTotalOrder(priceDish);
                 }
                 Client newClient = new Client(name, age, receipt);
-                actualizeMoneyEarned(newClient.receiptTotalOrder());
+                try {
+                    actualizeMoneyEarned(newClient.receiptTotalOrder());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 clients.add(newClient);
 
             }

@@ -51,7 +51,11 @@ public class EmployeesCRUD extends ConnectionCRUD {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        preparedStatement.setString(1, "drink");
+        try {
+            preparedStatement.setString(1, "drink");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
     }
 }
