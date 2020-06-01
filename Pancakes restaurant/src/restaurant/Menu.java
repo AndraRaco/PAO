@@ -66,4 +66,9 @@ public class Menu {
     public int sizeOfMenu() {
         return menu.size();
     }
+
+    public void addProduct(Product product) {
+        menu.add(product);
+        numberProducts++;
+    }
 }

@@ -1,0 +1,5 @@
+4
+nonalcoholic drink Coca-Cola 7 0.33 
+alcoholic drink Beer 8 0.5 4.5 
+Sweet pancake American-Style 25 350 5 flour 100 sugar 50 eggs 70 milk 150 honey 30
+Salty pancake Eggs-Benedict 27 400 4 flour 200 milk 200 eggs 70 ham 100

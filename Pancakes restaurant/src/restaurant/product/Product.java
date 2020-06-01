@@ -6,7 +6,7 @@ public abstract class Product {
 
     public Product() {
         price = 0;
-        name = "";
+        name = "-";
     }
 
     public Product(double price, String name) {

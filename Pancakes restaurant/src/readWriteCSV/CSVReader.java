@@ -46,7 +46,7 @@ public class CSVReader {
                 String name = strings[0];
                 int age = Integer.parseInt(strings[1]);
                 String job = strings[2];
-                Employee newEmployee = new Employee(name, age, job);
+                Employee newEmployee = new Employee(0, name, age, job);
                 employees.add(newEmployee);
             }
             br.close();
@@ -164,7 +164,7 @@ public class CSVReader {
                 String[] strings = string.split(csvSplitBy);
                 String name = strings[0];
                 int age = Integer.parseInt(strings[1]);
-                Client newClient=new Client(name,age);
+                Client newClient = new Client(name, age);
                 clients.add(newClient);
             }
             br.close();

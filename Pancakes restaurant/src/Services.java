@@ -1,8 +1,16 @@
+import functionCRUD.ClientCRUD;
+import functionCRUD.ClientsWithoutReceiptCRUD;
+import functionCRUD.EmployeesCRUD;
+import functionCRUD.MenuCRUD;
 import readWriteCSV.CSVReader;
 import readWriteCSV.CSVWriter;
 import restaurant.Restaurant;
 import restaurant.person.Client;
+import restaurant.product.beverage.AlcoholicBeverage;
+import restaurant.product.beverage.NonalcoholicBeverages;
+import restaurant.product.pancakes.Pancake;
 
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,12 +20,20 @@ public class Services {
     private Restaurant restaurant;
     CSVReader csvReader;
     CSVWriter csvWriter;
+    EmployeesCRUD emCRUD;
+    MenuCRUD menuCRUD;
+    ClientCRUD clientCRUD;
+    ClientsWithoutReceiptCRUD newClientCRUD;
 
     public Services(String restaurant) {
         this.restaurant = new Restaurant();
         this.restaurant.setName(restaurant);
         csvReader = CSVReader.getInstance();
         csvWriter = CSVWriter.getInstance();
+        emCRUD = new EmployeesCRUD();
+        menuCRUD = new MenuCRUD();
+        clientCRUD = new ClientCRUD();
+        newClientCRUD = new ClientsWithoutReceiptCRUD();
     }
 
     public Restaurant getRestaurant() {
@@ -32,16 +48,21 @@ public class Services {
         csvWriter.writeInCSV(string, timestamp);
     }
 
-    public void readAllDataFromCSV() {
+    public void readAllDataFromCSV() throws SQLException {
         // Read the List of Employees
-        csvReader.readSetOfEmployees(restaurant);
+        emCRUD.read(restaurant);
 
         // Read the Menu
-        csvReader.readMenu(restaurant.getMenu());
+        menuCRUD.read(restaurant.getMenu());
+//        Pancake pancake = new Pancake();
+//        menuCRUD.create(restaurant.getMenu(), pancake);
+//        menuCRUD.delete(restaurant.getMenu(),4);
 
         // Read the List of Clients that have ordered and the ones that have not
-        csvReader.readOldClientsList(restaurant); // Clients that have already ordered
-        csvReader.readClientsList(restaurant); // Clients that didn't order yet
+        clientCRUD.read(restaurant); // Clients that have already ordered
+        clientCRUD.updateIDAndReceiptID(restaurant);// Update id with the allocated hashCode
+
+        newClientCRUD.read(restaurant); // Clients that didn't order yet
     }
 
     public void takeOrderFromNewClients() {
@@ -110,7 +131,7 @@ public class Services {
 
     public int readChoice() {
         Scanner scanner = restaurant.getScanner();
-        System.out.println("Choose one option, the number should be between 1 and 10: ");
+        System.out.println("Choose one option, the number should be between 1 and 11: ");
         int choice = -1;
 
         while (true) {
@@ -122,7 +143,7 @@ public class Services {
         return choice;
     }
 
-    public void closeCSVWriter(){
+    public void closeCSVWriter() {
         csvWriter.close();
     }
 

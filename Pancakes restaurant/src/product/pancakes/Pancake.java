@@ -81,6 +81,17 @@ public class Pancake extends Product {
         return str.toString();
     }
 
+    public String ingredientsAndGrams() {
+        String string = "";
+        for (int i = 0; i < numberIngredients; i++) {
+            string += ingredientList.get(i).getName();
+            string += ",";
+            string += ingredientList.get(i).getWeightGrams();
+            string += ",";
+        }
+        return string;
+    }
+
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder(type + " pancake " + " name=" + super.getName() +

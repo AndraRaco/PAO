@@ -7,8 +7,8 @@ public class Employee extends Person {
         super();
     }
 
-    public Employee(String name, int age, String jobName) {
-        super(name, age);
+    public Employee(int id, String name, int age, String jobName) {
+        super(id, name, age);
         this.jobName = jobName;
     }
 
@@ -22,7 +22,7 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "Employee " + " name=" + super.getName() + ", age=" + super.getAge() +
+        return "Employee " + "id=" + super.getId() + " name=" + super.getName() + ", age=" + super.getAge() +
                 ", jobName=" + jobName;
     }
 
