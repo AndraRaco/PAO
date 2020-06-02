@@ -1,5 +1,6 @@
 package restaurant.person;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -86,5 +87,16 @@ public class Receipt {
 
     public void addPriceOfAProductToTotalOrder(double priceProduct) {
         totalOrder += priceProduct;
+    }
+
+    public String indexProductListToString() {
+        String string = "";
+        for (int i = 0; i < numberOfDishes; i++) {
+            string += numberDish.get(i).toString();
+            if (numberOfDishes - 1 == i)
+                continue;
+            string += ",";
+        }
+        return string;
     }
 }

@@ -10,13 +10,13 @@ public class Client extends Person implements Comparable<Client> {
     public Client(String name, int age) {
         super(name, age);
         this.id = hashCode();
-        receipt = null;
+        receipt = new Receipt();
     }
 
     public Client() {
         super();
         this.id = hashCode();
-        receipt = null;
+        receipt = new Receipt();
     }
 
     public Receipt getReceipt() {

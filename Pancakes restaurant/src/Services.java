@@ -67,9 +67,17 @@ public class Services {
 
         // Read the List of Clients that have ordered and the ones that have not
         clientCRUD.read(restaurant); // Clients that have already ordered
-        clientCRUD.updateIDAndReceiptID(restaurant);// Update id with the allocated hashCode
+//        clientCRUD.updateIDAndReceiptID(restaurant);// Update id with the allocated hashCode
+//        Client newClient = new Client("andrei", 22);
+//        clientCRUD.create(restaurant, newClient);
+//        clientCRUD.delete(restaurant, newClient);
+
 
         newClientCRUD.read(restaurant); // Clients that didn't order yet
+//        newClientCRUD.updateAge(restaurant, 5, 19);
+//        Client newClient = new Client("adi", 22);
+//        newClientCRUD.create(restaurant, newClient);
+//        newClientCRUD.delete(restaurant, newClient);
     }
 
     public void takeOrderFromNewClients() {

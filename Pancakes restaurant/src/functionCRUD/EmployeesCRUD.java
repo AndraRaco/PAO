@@ -88,10 +88,7 @@ public class EmployeesCRUD extends ConnectionCRUD {
     }
 
     public void delete(Restaurant restaurant, Employee employee) {
-        // Delete employee from the set of Employees
         String nameToDelete = employee.getName();
-        restaurant.getEmployees().remove(employee);
-
         String sql = "DELETE FROM employees WHERE name=\"" + nameToDelete + "\"";
         PreparedStatement preparedStatement = null;
         try {
@@ -103,6 +100,8 @@ public class EmployeesCRUD extends ConnectionCRUD {
         int rowsDeleted = 0;
         try {
             rowsDeleted = preparedStatement.executeUpdate();
+            // Delete employee from the set of Employees
+            restaurant.getEmployees().remove(employee);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
