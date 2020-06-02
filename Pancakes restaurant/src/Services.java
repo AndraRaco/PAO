@@ -88,6 +88,8 @@ public class Services {
         for (int i = 0; i < indexesOfClientsDidNotOrdered.size(); i++) {
             Client client = restaurant.getClients().get(indexesOfClientsDidNotOrdered.get(i));
             restaurant.takeOrder(client);
+            newClientCRUD.delete(restaurant, client);
+            clientCRUD.create(restaurant, client);
         }
     }
 
