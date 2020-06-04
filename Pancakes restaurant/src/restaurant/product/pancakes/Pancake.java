@@ -5,10 +5,10 @@ import restaurant.product.Product;
 import java.util.ArrayList;
 
 public class Pancake extends Product {
+    ArrayList<Ingredient> ingredientList;
     private double weightGrams;
     private int numberIngredients;
     private String type; // Salty or Sweet
-    ArrayList<Ingredient> ingredientList;
 
     public Pancake() {
         super();

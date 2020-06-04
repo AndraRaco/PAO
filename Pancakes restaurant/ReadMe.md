@@ -28,7 +28,7 @@ II. restaurant (package)
     * Pancake
 3. Menu
 4. Restaurant 
-* Services
+* servicesPackage.Services
 * Main
    
 ### Methods from Restaurant Class
@@ -45,7 +45,7 @@ II. restaurant (package)
 7. closeScanner
 8. sortClientsAfterDate, date is in class Receipt
 
-### Methods from Services Class
+### Methods from servicesPackage.Services Class
 1. printListOfActions, prints the list of the services of the restaurant
 2. readChoice, reads from System.in the choice from the list of actions
 3. nameOfTheRestaurant, prints the name of the restaurant

@@ -5,9 +5,6 @@ import restaurant.person.Employee;
 import restaurant.person.Receipt;
 import restaurant.product.Product;
 
-import java.io.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Restaurant {
@@ -177,7 +174,7 @@ public class Restaurant {
         }
     }
 
-    public void newClient() {//Returns the client
+    public Client newClient() {//Returns the client
         System.out.println("New client information: ");
         System.out.println("name=");
         String name = scanner.nextLine();
@@ -185,6 +182,7 @@ public class Restaurant {
         int age = Integer.parseInt(scanner.nextLine());
         Client client = new Client(name, age);
         clients.add(client);
+        return client;
     }
 
     public void closeScanner() {

@@ -1,6 +1,5 @@
 package restaurant.person;
 
-import java.awt.*;
 import java.util.Date;
 
 public class Client extends Person implements Comparable<Client> {
@@ -19,17 +18,17 @@ public class Client extends Person implements Comparable<Client> {
         receipt = new Receipt();
     }
 
+    public Client(String name, int age, Receipt receipt) {
+        super(name, age);
+        this.id = hashCode();
+        this.receipt = receipt;
+    }
+
     public Receipt getReceipt() {
         return receipt;
     }
 
     public void setReceipt(Receipt receipt) {
-        this.receipt = receipt;
-    }
-
-    public Client(String name, int age, Receipt receipt) {
-        super(name, age);
-        this.id = hashCode();
         this.receipt = receipt;
     }
 
@@ -61,16 +60,15 @@ public class Client extends Person implements Comparable<Client> {
 
     @Override
     public int compareTo(Client client) {
-        Date date1= new Date(),date2=new Date();
-        if(client.getReceipt()!=null && this.getReceipt()!=null)
-        {
-        date1 = this.getReceipt().getDate();
-        date2 = client.getReceipt().getDate();
+        Date date1 = new Date(), date2 = new Date();
+        if (client.getReceipt() != null && this.getReceipt() != null) {
+            date1 = this.getReceipt().getDate();
+            date2 = client.getReceipt().getDate();
         }
         return date1.compareTo(date2);
     }
 
-    public void makeReceipt(){
-        receipt=new Receipt();
+    public void makeReceipt() {
+        receipt = new Receipt();
     }
 }

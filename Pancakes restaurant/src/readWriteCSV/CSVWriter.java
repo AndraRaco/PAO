@@ -1,17 +1,11 @@
 package readWriteCSV;
 
-import restaurant.Restaurant;
-import restaurant.person.Employee;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.Set;
 
 public class CSVWriter {
     // Singleton class used to write CSV files
@@ -50,7 +44,7 @@ public class CSVWriter {
     public void writeInCSV(String nameAction, Date timestamp) {
         try {
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            writer.write(nameAction + "," + formatter.format(timestamp)+"\n");
+            writer.write(nameAction + "," + formatter.format(timestamp) + "\n");
             writer.flush();
             fileWriter.flush();
         } catch (IOException e) {
@@ -58,8 +52,7 @@ public class CSVWriter {
         }
     }
 
-    public void close()
-    {
+    public void close() {
         try {
             writer.close();
         } catch (IOException e) {

@@ -3,13 +3,12 @@ package functionCRUD;
 import restaurant.Restaurant;
 import restaurant.person.Client;
 
-import java.io.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Optional;
+import java.util.Vector;
 
 public class ClientsWithoutReceiptCRUD extends ConnectionCRUD {
     public ClientsWithoutReceiptCRUD() {
@@ -36,6 +35,15 @@ public class ClientsWithoutReceiptCRUD extends ConnectionCRUD {
             k++;
         }
 
+        // Update id with a standard number
+        int j = 1;
+        for (int i = k - 1; i < restaurant.sizeOfClientsList(); i++) {
+            String name = restaurant.getClients().get(i).getName();
+            String sqlUpdateQuery = "UPDATE clients SET id=" + j + " WHERE name=\"" + name + "\"";
+            statement.executeUpdate(sqlUpdateQuery);
+            j++;
+        }
+
         // Update id with the allocated hashCode
         for (int i = k - 1; i < restaurant.sizeOfClientsList(); i++) {
             int newId = restaurant.getClients().get(i).getId();
@@ -43,6 +51,30 @@ public class ClientsWithoutReceiptCRUD extends ConnectionCRUD {
             String sqlUpdateQuery = "UPDATE clients SET id=" + newId + " WHERE name=\"" + name + "\"";
             statement.executeUpdate(sqlUpdateQuery);
         }
+    }
+
+    public Vector<Vector<Object>> readForGUI() throws SQLException { // Clients that did not ordered yet
+        // Clients that have receipt
+
+        // SQL SELECT query
+        String sql = "select * from clients";
+
+        // Execute the query, and get a java resultSet
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        // Matrix
+        Vector<Vector<Object>> clients = new Vector<Vector<Object>>();
+
+        while (resultSet.next()) {
+            String name = resultSet.getString("name");
+            int age = resultSet.getInt("age");
+
+            Vector<Object> aux= new Vector<Object>();
+            aux.add(name);
+            aux.add(age);
+            clients.add(aux);
+        }
+        return clients;
     }
 
     public void create(Restaurant restaurant, Client newClient) {
@@ -96,8 +128,7 @@ public class ClientsWithoutReceiptCRUD extends ConnectionCRUD {
         }
     }
 
-    public void updateAge(Restaurant restaurant, int index, int newAge)
-    {
+    public void updateAge(Restaurant restaurant, int index, int newAge) {
         String name = restaurant.getClients().get(index).getName();
         Client clientToBeUpdated = restaurant.getClients().get(index);
 

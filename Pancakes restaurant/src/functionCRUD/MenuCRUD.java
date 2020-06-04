@@ -2,7 +2,6 @@ package functionCRUD;
 
 import restaurant.Menu;
 import restaurant.Restaurant;
-import restaurant.person.Employee;
 import restaurant.product.Product;
 import restaurant.product.beverage.AlcoholicBeverage;
 import restaurant.product.beverage.Beverage;
@@ -10,13 +9,11 @@ import restaurant.product.beverage.NonalcoholicBeverages;
 import restaurant.product.pancakes.Ingredient;
 import restaurant.product.pancakes.Pancake;
 
-import java.io.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Set;
+import java.util.Vector;
 
 public class MenuCRUD extends ConnectionCRUD {
 
@@ -68,6 +65,39 @@ public class MenuCRUD extends ConnectionCRUD {
         }
         menuRestaurant.setNumberProducts(numberProducts);
     }
+
+    public Vector<Vector<Object>> readForGUI() throws SQLException {
+
+        // SQL SELECT query
+        String sql = "select * from menu";
+
+        // Execute the query, and get a java resultSet
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        // Matrix
+        Vector<Vector<Object>> menu = new Vector<Vector<Object>>();
+
+        // Iterate through the java resultSet
+        while (resultSet.next()) {
+            String name = resultSet.getString("name");
+            double price = resultSet.getDouble("price");
+            String product = resultSet.getString("product");
+            String productType = resultSet.getString("product_type");
+            double weight = resultSet.getDouble("weight");
+
+            Vector<Object> aux= new Vector<Object>();
+            aux.add(product);
+            aux.add(productType);
+            aux.add(name);
+            aux.add(weight);
+            aux.add(price);
+
+            menu.add(aux);
+        }
+        return menu;
+
+    }
+
 
     public void create(Menu menu, Product newProduct) throws SQLException {
         int rowsInserted;
@@ -150,7 +180,7 @@ public class MenuCRUD extends ConnectionCRUD {
         if (index >= 0 && index < menu.getNumberProducts()) {
             String nameToDelete = menu.getMenu().get(index).getName();
 
-            String sql = "DELETE FROM menu WHERE name=\"" + nameToDelete+"\"";
+            String sql = "DELETE FROM menu WHERE name=\"" + nameToDelete + "\"";
             PreparedStatement preparedStatement = null;
             try {
                 preparedStatement = connection.prepareStatement(sql);

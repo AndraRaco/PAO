@@ -3,13 +3,14 @@ package functionCRUD;
 import restaurant.Restaurant;
 import restaurant.person.Employee;
 
-import java.io.*;
+import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.Vector;
 
 public class EmployeesCRUD extends ConnectionCRUD {
 
@@ -38,6 +39,56 @@ public class EmployeesCRUD extends ConnectionCRUD {
             employees.add(newEmployee);
         }
 
+    }
+
+//    public Vector<Object> readForGUI(Restaurant restaurant) throws SQLException {
+//
+//        // SQL SELECT query
+//        String sql = "select * from employees";
+//
+//        // Execute the query, and get a java resultSet
+//        ResultSet resultSet = statement.executeQuery(sql);
+//
+//        // Matrix
+//        Vector<Object> employees = new Vector<Object>();
+//
+//        // Iterate through the java resultSet
+//        while (resultSet.next()) {
+//            int age = resultSet.getInt("age");
+//            String name = resultSet.getString("name");
+//            String job = resultSet.getString("job_title");
+//
+//            employees.add(name);
+//            employees.add(age);
+//            employees.add(job);
+//        }
+//        return employees;
+//    }
+
+    public Vector<Vector<Object>> readForGUI() throws SQLException {
+
+        // SQL SELECT query
+        String sql = "select * from employees";
+
+        // Execute the query, and get a java resultSet
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        // Matrix
+        Vector<Vector<Object>> employees = new Vector<Vector<Object>>();
+
+        // Iterate through the java resultSet
+        while (resultSet.next()) {
+            int age = resultSet.getInt("age");
+            String name = resultSet.getString("name");
+            String job = resultSet.getString("job_title");
+
+            Vector<Object> aux= new Vector<Object>();
+            aux.add(name);
+            aux.add(age);
+            aux.add(job);
+            employees.add(aux);
+        }
+        return employees;
     }
 
     public void create(Restaurant restaurant, Employee employee) {

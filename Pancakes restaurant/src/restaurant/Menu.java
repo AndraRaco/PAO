@@ -1,12 +1,8 @@
 package restaurant;
 
 import restaurant.product.Product;
-import restaurant.product.beverage.AlcoholicBeverage;
-import restaurant.product.beverage.NonalcoholicBeverages;
-import restaurant.product.pancakes.Ingredient;
 import restaurant.product.pancakes.Pancake;
 
-import java.io.*;
 import java.util.ArrayList;
 
 public class Menu {

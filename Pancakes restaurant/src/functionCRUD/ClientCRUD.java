@@ -5,15 +5,12 @@ import restaurant.Restaurant;
 import restaurant.person.Client;
 import restaurant.person.Receipt;
 
-import javax.xml.crypto.Data;
-import java.io.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Vector;
 
 public class ClientCRUD extends ConnectionCRUD {
     public ClientCRUD() {
@@ -55,10 +52,55 @@ public class ClientCRUD extends ConnectionCRUD {
 
             restaurant.addClient(newClient);
         }
+    }
 
+    public Vector<Vector<Object>> readForGUI() throws SQLException {
+        // Clients that have receipt
+
+        // SQL SELECT query
+        String sql = "select * from clients_with_receipt";
+
+        // Execute the query, and get a java resultSet
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        // Matrix
+        Vector<Vector<Object>> clients = new Vector<Vector<Object>>();
+
+        while (resultSet.next()) {
+            String name = resultSet.getString("name");
+            int age = resultSet.getInt("age");
+            Date date = resultSet.getDate("date");
+
+            Vector<Object> aux = new Vector<Object>();
+            aux.add(name);
+            aux.add(age);
+            aux.add(date);
+            clients.add(aux);
+        }
+
+        return clients;
     }
 
     public void updateIDAndReceiptID(Restaurant restaurant) {
+        int j = 0;
+        j++;
+        for (int i = 0; i < restaurant.sizeOfClientsList(); i++) {
+            String name = restaurant.getClients().get(i).getName();
+            String sqlUpdateQuery = "UPDATE clients_with_receipt SET id=" + j + " WHERE name=\"" + name + "\"";
+            try {
+                statement.executeUpdate(sqlUpdateQuery);
+                String sqlUpdateQuery2 = "UPDATE clients_with_receipt SET receipt_id=" + j + " WHERE name=\"" + name + "\"";
+                try {
+                    statement.executeUpdate(sqlUpdateQuery2);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+
+
         for (int i = 0; i < restaurant.sizeOfClientsList(); i++) {
             // Update id with the allocated hashCode
             int newId = restaurant.getClients().get(i).getId();
