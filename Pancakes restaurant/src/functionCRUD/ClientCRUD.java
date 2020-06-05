@@ -124,7 +124,7 @@ public class ClientCRUD extends ConnectionCRUD {
 
     public void create(Restaurant restaurant, Client newClient) {
         // Add a new client with receipt
-        String sql = "INSERT INTO clients_with_receipt (id, name, age, date, receipt_id, number_products, products) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO clients_with_receipt (name, age, date, receipt_id, number_products, products) VALUES (?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = null;
         try {
@@ -134,16 +134,16 @@ public class ClientCRUD extends ConnectionCRUD {
         }
 
         try {
-            preparedStatement.setInt(1, newClient.getId());
-            preparedStatement.setString(2, newClient.getName());
-            preparedStatement.setInt(3, newClient.getAge());
+//            preparedStatement.setInt(1, newClient.getId());
+            preparedStatement.setString(1, newClient.getName());
+            preparedStatement.setInt(2, newClient.getAge());
             Date date = newClient.getReceipt().getDate();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             String newDate = formatter.format(date);
-            preparedStatement.setDate(4, java.sql.Date.valueOf(newDate));
-            preparedStatement.setInt(5, newClient.getReceipt().getId());
-            preparedStatement.setInt(6, newClient.getReceipt().getNumberOfDishes());
-            preparedStatement.setString(7, newClient.getReceipt().indexProductListToString());
+            preparedStatement.setDate(3, java.sql.Date.valueOf(newDate));
+            preparedStatement.setInt(4, newClient.getReceipt().getId());
+            preparedStatement.setInt(5, newClient.getReceipt().getNumberOfDishes());
+            preparedStatement.setString(6, newClient.getReceipt().indexProductListToString());
 
 
             int rowsInserted = preparedStatement.executeUpdate();

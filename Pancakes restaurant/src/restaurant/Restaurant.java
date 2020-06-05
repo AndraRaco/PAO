@@ -203,7 +203,7 @@ public class Restaurant {
         int i = 0;
         while (iterator.hasNext()) {
             Client client = iterator.next();
-            if (client.getReceipt() == null) {
+            if (client.getReceipt().getNumberOfDishes() == 0) {
                 indexesOfClientsDidNotOrdered.add(i);
             }
             i++;

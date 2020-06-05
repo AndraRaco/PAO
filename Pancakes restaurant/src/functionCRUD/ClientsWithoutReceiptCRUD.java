@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.Vector;
 
 public class ClientsWithoutReceiptCRUD extends ConnectionCRUD {
@@ -34,23 +33,6 @@ public class ClientsWithoutReceiptCRUD extends ConnectionCRUD {
             clients.add(newClient);
             k++;
         }
-
-        // Update id with a standard number
-        int j = 1;
-        for (int i = k - 1; i < restaurant.sizeOfClientsList(); i++) {
-            String name = restaurant.getClients().get(i).getName();
-            String sqlUpdateQuery = "UPDATE clients SET id=" + j + " WHERE name=\"" + name + "\"";
-            statement.executeUpdate(sqlUpdateQuery);
-            j++;
-        }
-
-        // Update id with the allocated hashCode
-        for (int i = k - 1; i < restaurant.sizeOfClientsList(); i++) {
-            int newId = restaurant.getClients().get(i).getId();
-            String name = restaurant.getClients().get(i).getName();
-            String sqlUpdateQuery = "UPDATE clients SET id=" + newId + " WHERE name=\"" + name + "\"";
-            statement.executeUpdate(sqlUpdateQuery);
-        }
     }
 
     public Vector<Vector<Object>> readForGUI() throws SQLException { // Clients that did not ordered yet
@@ -69,7 +51,7 @@ public class ClientsWithoutReceiptCRUD extends ConnectionCRUD {
             String name = resultSet.getString("name");
             int age = resultSet.getInt("age");
 
-            Vector<Object> aux= new Vector<Object>();
+            Vector<Object> aux = new Vector<Object>();
             aux.add(name);
             aux.add(age);
             clients.add(aux);
@@ -79,7 +61,7 @@ public class ClientsWithoutReceiptCRUD extends ConnectionCRUD {
 
     public void create(Restaurant restaurant, Client newClient) {
         // Add a new client with receipt
-        String sql = "INSERT INTO clients (id, name, age) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO clients (name, age) VALUES ( ?, ?)";
 
         PreparedStatement preparedStatement = null;
         try {
@@ -89,9 +71,9 @@ public class ClientsWithoutReceiptCRUD extends ConnectionCRUD {
         }
 
         try {
-            preparedStatement.setInt(1, newClient.getId());
-            preparedStatement.setString(2, newClient.getName());
-            preparedStatement.setInt(3, newClient.getAge());
+//            preparedStatement.setInt(1, newClient.getId());
+            preparedStatement.setString(1, newClient.getName());
+            preparedStatement.setInt(2, newClient.getAge());
 
             int rowsInserted = preparedStatement.executeUpdate();
             if (rowsInserted > 0) {
@@ -103,6 +85,33 @@ public class ClientsWithoutReceiptCRUD extends ConnectionCRUD {
             throwables.printStackTrace();
         }
     }
+
+//    public void create(Restaurant restaurant, Client newClient) {
+//        // Add a new client with receipt
+//        String sql = "INSERT INTO clients (id, name, age) VALUES (?, ?, ?)";
+//
+//        PreparedStatement preparedStatement = null;
+//        try {
+//            preparedStatement = connection.prepareStatement(sql);
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//
+//        try {
+//            preparedStatement.setInt(1, newClient.getId());
+//            preparedStatement.setString(2, newClient.getName());
+//            preparedStatement.setInt(3, newClient.getAge());
+//
+//            int rowsInserted = preparedStatement.executeUpdate();
+//            if (rowsInserted > 0) {
+//                System.out.println("A new client without receipt was inserted successfully!");
+//                // Add new client without receipt to the client list
+//                restaurant.getClients().add(newClient);
+//            }
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//    }
 
     public void delete(Restaurant restaurant, Client client) {
         String nameToDelete = client.getName();

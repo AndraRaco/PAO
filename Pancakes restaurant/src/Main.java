@@ -1,3 +1,4 @@
+import interfacePackage.GUI;
 import servicesPackage.Services;
 
 import java.sql.SQLException;
@@ -18,14 +19,15 @@ public class Main {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
-        services.writeActionInCSV("Read all data from CSV", timestamp);
+        Thread t = Thread.currentThread();
+        String name = t.getName();
+        services.writeActionInCSV("Read all data from CSV", timestamp, name);
 
         // The scanner that have been open in the restaurant
         Scanner scanner = services.getRestaurant().getScanner();
 
-        /////// 6 si 11 nu au mers
-
+        // Interface
+        new GUI();
 
         // Menu of servicesPackage.Services
         boolean endApp = false;
@@ -38,35 +40,45 @@ public class Main {
                     // 1. Show The Name of the Restaurant
                     services.nameOfTheRestaurant();
                     timestamp = Calendar.getInstance().getTime();
-                    services.writeActionInCSV("Show The Name of the Restaurant", timestamp);
+                    t = Thread.currentThread();
+                    name = t.getName();
+                    services.writeActionInCSV("Show The Name of the Restaurant", timestamp, name);
                     break;
                 }
                 case 2: {
                     // 2. Show Menu
                     services.showMenu();
                     timestamp = Calendar.getInstance().getTime();
-                    services.writeActionInCSV("Show Menu", timestamp);
+                    t = Thread.currentThread();
+                    name = t.getName();
+                    services.writeActionInCSV("Show Menu", timestamp, name);
                     break;
                 }
                 case 3: {
                     // 3. Show The List of Employees.
                     services.showEmployeesList();
                     timestamp = Calendar.getInstance().getTime();
-                    services.writeActionInCSV("Show The List of Employees", timestamp);
+                    t = Thread.currentThread();
+                    name = t.getName();
+                    services.writeActionInCSV("Show The List of Employees", timestamp, name);
                     break;
                 }
                 case 4: {
                     // 4. Show The List of Clients.
                     services.showClientsList();
                     timestamp = Calendar.getInstance().getTime();
-                    services.writeActionInCSV("Show The List of Clients", timestamp);
+                    t = Thread.currentThread();
+                    name = t.getName();
+                    services.writeActionInCSV("Show The List of Clients", timestamp, name);
                     break;
                 }
                 case 5: {
                     // 5. Show Total Money Earned.
                     services.showTotalMoneyEarned();
                     timestamp = Calendar.getInstance().getTime();
-                    services.writeActionInCSV("Show Total Money Earned", timestamp);
+                    t = Thread.currentThread();
+                    name = t.getName();
+                    services.writeActionInCSV("Show Total Money Earned", timestamp, name);
                     break;
                 }
                 case 6: {
@@ -83,14 +95,18 @@ public class Main {
                     }
                     services.printWhatOrderedClientWithIndex(index);
                     timestamp = Calendar.getInstance().getTime();
-                    services.writeActionInCSV("Show what ordered client with the index you enter", timestamp);
+                    t = Thread.currentThread();
+                    name = t.getName();
+                    services.writeActionInCSV("Show what ordered client with the index you enter", timestamp, name);
                     break;
                 }
                 case 7: {
                     // 7. Information about one of the waiters.
                     services.oneOfTheWaiters();
                     timestamp = Calendar.getInstance().getTime();
-                    services.writeActionInCSV("Information about one of the waiters", timestamp);
+                    t = Thread.currentThread();
+                    name = t.getName();
+                    services.writeActionInCSV("Information about one of the waiters", timestamp, name);
                     break;
                 }
                 case 8: {
@@ -98,28 +114,36 @@ public class Main {
                     services.sortClientsAfterDate();
                     services.showClientsList();
                     timestamp = Calendar.getInstance().getTime();
-                    services.writeActionInCSV("Sort Clients after Date", timestamp);
+                    t = Thread.currentThread();
+                    name = t.getName();
+                    services.writeActionInCSV("Sort Clients after Date", timestamp, name);
                     break;
                 }
                 case 9: {
                     // 9. Welcome new Client and take their information.
                     services.welcomeNewClient();
                     timestamp = Calendar.getInstance().getTime();
-                    services.writeActionInCSV("Welcome new Client and take their information", timestamp);
+                    name = t.getName();
+                    t = Thread.currentThread();
+                    services.writeActionInCSV("Welcome new Client and take their information", timestamp, name);
                     break;
                 }
                 case 10: {
                     // 10. Take the orders from the new Clients.
                     services.takeOrderFromNewClients();
                     timestamp = Calendar.getInstance().getTime();
-                    services.writeActionInCSV("Take the orders from the new Clients", timestamp);
+                    t = Thread.currentThread();
+                    name = t.getName();
+                    services.writeActionInCSV("Take the orders from the new Clients", timestamp, name);
                     break;
                 }
                 case 11: {
                     // 11. Close The Application.
                     endApp = true;
                     timestamp = Calendar.getInstance().getTime();
-                    services.writeActionInCSV("Close The Application", timestamp);
+                    t = Thread.currentThread();
+                    name = t.getName();
+                    services.writeActionInCSV("Close The Application", timestamp, name);
                     // Close the restaurant's scanner
                     services.getRestaurant().closeScanner();
                     services.closeCSVWriter();

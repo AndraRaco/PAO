@@ -16,6 +16,23 @@ import java.util.Scanner;
 
 public class Services {
     CSVReader csvReader;
+    CSVWriter csvWriter;
+    EmployeesCRUD emCRUD;
+    MenuCRUD menuCRUD;
+    ClientCRUD clientCRUD;
+    ClientsWithoutReceiptCRUD newClientCRUD;
+    private Restaurant restaurant;
+
+    public Services(String restaurant) {
+        this.restaurant = new Restaurant();
+        this.restaurant.setName(restaurant);
+        csvReader = CSVReader.getInstance();
+        csvWriter = CSVWriter.getInstance();
+        emCRUD = new EmployeesCRUD();
+        menuCRUD = new MenuCRUD();
+        clientCRUD = new ClientCRUD();
+        newClientCRUD = new ClientsWithoutReceiptCRUD();
+    }
 
     public CSVReader getCsvReader() {
         return csvReader;
@@ -65,24 +82,6 @@ public class Services {
         this.newClientCRUD = newClientCRUD;
     }
 
-    CSVWriter csvWriter;
-    EmployeesCRUD emCRUD;
-    MenuCRUD menuCRUD;
-    ClientCRUD clientCRUD;
-    ClientsWithoutReceiptCRUD newClientCRUD;
-    private Restaurant restaurant;
-
-    public Services(String restaurant) {
-        this.restaurant = new Restaurant();
-        this.restaurant.setName(restaurant);
-        csvReader = CSVReader.getInstance();
-        csvWriter = CSVWriter.getInstance();
-        emCRUD = new EmployeesCRUD();
-        menuCRUD = new MenuCRUD();
-        clientCRUD = new ClientCRUD();
-        newClientCRUD = new ClientsWithoutReceiptCRUD();
-    }
-
     public Restaurant getRestaurant() {
         return restaurant;
     }
@@ -91,8 +90,8 @@ public class Services {
         this.restaurant = restaurant;
     }
 
-    public void writeActionInCSV(String string, Date timestamp) {
-        csvWriter.writeInCSV(string, timestamp);
+    public void writeActionInCSV(String string, Date timestamp, String name) {
+        csvWriter.writeInCSV(string, timestamp, name);
     }
 
     public void readAllDataFromDatabase() throws SQLException {
@@ -113,14 +112,14 @@ public class Services {
         // Read the List of Clients that have ordered and the ones that have not
         clientCRUD.read(restaurant); // Clients that have already ordered
 //        clientCRUD.updateIDAndReceiptID(restaurant);// Update id with the allocated hashCode
-//        Client newClient = new Client("andrei", 22);
+//        Client newClient = new Client("Marinescu Adi", 22);
 //        clientCRUD.create(restaurant, newClient);
 //        clientCRUD.delete(restaurant, newClient);
 
 
         newClientCRUD.read(restaurant); // Clients that didn't order yet
 //        newClientCRUD.updateAge(restaurant, 5, 19);
-//        Client newClient = new Client("adi", 22);
+//        Client newClient = new Client("Marinescu Adi", 29);
 //        newClientCRUD.create(restaurant, newClient);
 //        newClientCRUD.delete(restaurant, newClient);
     }

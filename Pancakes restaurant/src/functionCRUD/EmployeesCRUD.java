@@ -3,11 +3,9 @@ package functionCRUD;
 import restaurant.Restaurant;
 import restaurant.person.Employee;
 
-import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
@@ -82,7 +80,7 @@ public class EmployeesCRUD extends ConnectionCRUD {
             String name = resultSet.getString("name");
             String job = resultSet.getString("job_title");
 
-            Vector<Object> aux= new Vector<Object>();
+            Vector<Object> aux = new Vector<Object>();
             aux.add(name);
             aux.add(age);
             aux.add(job);

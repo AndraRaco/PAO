@@ -85,7 +85,7 @@ public class MenuCRUD extends ConnectionCRUD {
             String productType = resultSet.getString("product_type");
             double weight = resultSet.getDouble("weight");
 
-            Vector<Object> aux= new Vector<Object>();
+            Vector<Object> aux = new Vector<Object>();
             aux.add(product);
             aux.add(productType);
             aux.add(name);

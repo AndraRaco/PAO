@@ -91,7 +91,7 @@ public class Receipt {
     public String indexProductListToString() {
         String string = "";
         for (int i = 0; i < numberOfDishes; i++) {
-            string += numberDish.get(i).toString();
+            string += Integer.parseInt(String.valueOf(numberDish.get(i) + 1));
             if (numberOfDishes - 1 == i)
                 continue;
             string += ",";

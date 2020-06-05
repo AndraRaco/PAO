@@ -12,23 +12,25 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Vector;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 
 public class GUI {
+    public String SERVICES_PANEL = "Services Panel";
+    public String RESULT_PANEL = "Result Panel";
+    int layoutVisible; // 1 - Services Panel 2 - Result Panel
     private int count = 0;
     private JLabel label;
     private JFrame frame;
     private JPanel mainPanel;
     private JPanel servicesPanel;
-    public String SERVICES_PANEL = "Services Panel";
     private JPanel resultPanel;
-    public String RESULT_PANEL = "Result Panel";
     private CardLayout cardLayout;
     private Services services;
-    int layoutVisible; // 1 - Services Panel 2 - Result Panel
 
     public GUI() {
         // Initializations
@@ -53,13 +55,13 @@ public class GUI {
         servicesPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
         servicesPanel.setLayout(new GridLayout(5, 2));
 
-        // Read all data from database: Menu, Employees, Clients with receipt and new Clients
-        try {
-            services.readAllDataFromDatabase();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-            System.out.println("Reading data from database did not work.");
-        }
+//        // Read all data from database: Menu, Employees, Clients with receipt and new Clients
+//        try {
+//            services.readAllDataFromDatabase();
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//            System.out.println("Reading data from database did not work.");
+//        }
 
         // Create List of services and buttons to access them
         JLabel label1 = new JLabel("Show clients that didn't order yet.");
@@ -67,6 +69,7 @@ public class GUI {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) { // Read
+                Date timestamp = Calendar.getInstance().getTime();
                 switchPanels();
                 resultPanel.removeAll();
                 ClientsWithoutReceiptCRUD clientCRUD = services.getNewClientCRUD();
@@ -85,6 +88,9 @@ public class GUI {
                 JTable table = new JTable(data, columnNames);
 
                 resultPanel.add(table);
+                Thread t = Thread.currentThread();
+
+                services.writeActionInCSV("Show clients that didn't order yet GUI", timestamp, t.getName());
             }
         });
         servicesPanel.add(label1);
@@ -95,6 +101,7 @@ public class GUI {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Date timestamp = Calendar.getInstance().getTime();
                 switchPanels();
                 resultPanel.removeAll();
                 MenuCRUD menuCRUD = services.getMenuCRUD();
@@ -111,6 +118,8 @@ public class GUI {
                     JTable table = new JTable(data, columnNames);
 
                     resultPanel.add(table);
+                    Thread t = Thread.currentThread();
+                    services.writeActionInCSV("Show menu GUI", timestamp, t.getName());
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                     System.out.println("Couldn't read menu from database.");
@@ -125,6 +134,7 @@ public class GUI {
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Date timestamp = Calendar.getInstance().getTime();
                 switchPanels();
                 resultPanel.removeAll();
                 EmployeesCRUD employeesCRUD = services.getEmCRUD();
@@ -138,6 +148,7 @@ public class GUI {
                     JTable table = new JTable(data, columnNames);
 
                     resultPanel.add(table);
+//                    services.writeActionInCSV("Show employees GUI", timestamp);
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                     System.out.println("Couldn't read employees from database");
@@ -152,6 +163,7 @@ public class GUI {
         button4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Date timestamp = Calendar.getInstance().getTime();
                 switchPanels();
                 resultPanel.removeAll();
                 ClientCRUD clientCRUD = services.getClientCRUD();
@@ -170,6 +182,8 @@ public class GUI {
                 JTable table = new JTable(data, columnNames);
 
                 resultPanel.add(table);
+                Thread t = Thread.currentThread();
+                services.writeActionInCSV("Show clients that have ordered GUI", timestamp, t.getName());
             }
         });
         servicesPanel.add(label4);
@@ -181,6 +195,7 @@ public class GUI {
         button5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Date timestamp = Calendar.getInstance().getTime();
                 switchPanels();
                 resultPanel.removeAll();
 
@@ -215,6 +230,8 @@ public class GUI {
                 JLabel empty = new JLabel();
                 resultPanel.add(empty);
                 resultPanel.add(buttonSave);
+                Thread t = Thread.currentThread();
+                services.writeActionInCSV("Take client information GUI", timestamp, t.getName());
             }
         });
         servicesPanel.add(label5);
@@ -241,11 +258,17 @@ public class GUI {
     void showServicesPanel() {
         cardLayout.show(mainPanel, SERVICES_PANEL);
         layoutVisible = 1;
+        Date timestamp = Calendar.getInstance().getTime();
+        Thread t = Thread.currentThread();
+        services.writeActionInCSV("Show Services Panel", timestamp, t.getName());
     }
 
     void showResultPanel() {
         cardLayout.show(mainPanel, RESULT_PANEL);
         layoutVisible = 2;
+        Date timestamp = Calendar.getInstance().getTime();
+        Thread t = Thread.currentThread();
+        services.writeActionInCSV("Show Result Panel GUI", timestamp, t.getName());
     }
 
     void switchPanels() {
@@ -253,9 +276,9 @@ public class GUI {
             showResultPanel();
         else
             showServicesPanel();
+        Date timestamp = Calendar.getInstance().getTime();
+        Thread t = Thread.currentThread();
+        services.writeActionInCSV("Switch Panels GUI", timestamp, t.getName());
     }
 
-    public static void main(String[] args) {
-        new GUI();
-    }
 }

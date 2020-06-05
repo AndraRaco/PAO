@@ -41,10 +41,10 @@ public class CSVWriter {
         return instance;
     }
 
-    public void writeInCSV(String nameAction, Date timestamp) {
+    public void writeInCSV(String nameAction, Date timestamp, String name) {
         try {
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            writer.write(nameAction + "," + formatter.format(timestamp) + "\n");
+            writer.write(nameAction + "," + formatter.format(timestamp) + "," + name + "\n");
             writer.flush();
             fileWriter.flush();
         } catch (IOException e) {
