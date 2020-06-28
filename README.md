@@ -1,9 +1,21 @@
 # Advanced Object Oriented Programming in Java
 
-## Pancakes restaurant Project Second Part
-Github: https://github.com/AndraRaco/PAO/tree/master/Pancakes%20restaurant
+## Pancakes restaurant
+It is a programme written in Java designed to help with a Pancake Restaurant administration.
 
 Requirement: https://github.com/constantin-voinea/java-fundamentals/blob/master/tema_proiect.txt
+
+### Project Second Part
+In this part of project I read date from csv files and write in a audit csv file the name of every action from the menu and its timestamp.
+
+Github: https://github.com/AndraRaco/PAO/tree/master/Pancakes%20restaurant%20Etapa%202
+
+### Project 3rd Part
+In this part of project I read date from databeses and have created CRUD function for every database. Moreover, I write in a audit csv file the name of every action from the menu, its timestamp and the thread name. Furthermore, I created a Graphical user interface, where the users can see the menu, the clients and the employees of the restaurnat.
+
+Github: https://github.com/AndraRaco/PAO/tree/master/Pancakes%20restaurant
+
+
 
 ## Homeworks: 
 1. 3rd Laboratory Homework
